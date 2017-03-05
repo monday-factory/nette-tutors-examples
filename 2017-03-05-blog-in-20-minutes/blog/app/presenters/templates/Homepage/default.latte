@@ -1,0 +1,11 @@
+{block content}
+	<h1>My blog posts</h1>
+
+	{foreach $articles as $article}
+		<article>
+			<h2><a n:href="detail, $article->id">{$article->title}</a></h2>
+			<small>{$article->date|date:'j. n. Y'}</small>
+			<p>{$article->text|truncate:200, '...'}</p>
+		</article>
+	{/foreach}
+{/block}

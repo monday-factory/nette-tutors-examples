@@ -1,0 +1,24 @@
+{block content}
+	<h1>{$article->title}</h1>
+
+	<small>{$article->date|date:'j. n. Y'}</small>
+	<p>{$article->text}</p>
+
+	<article>
+		<h2>Comments</h2>
+
+		{var $comments = $article->related('comment')}
+
+		{if $comments->count()}
+			<ul>
+				<li n:foreach="$comments as $comment">
+					<small>{$comment->date|date:'j. n. Y'}</small> &bull; {$comment->name}</>
+					<br>
+					{$comment->text}
+				</li>
+			</ul>
+		{/if}
+
+		{control commentForm}
+	</article>
+{/block}
