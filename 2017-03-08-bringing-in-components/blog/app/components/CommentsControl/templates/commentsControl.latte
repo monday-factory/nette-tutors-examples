@@ -1,0 +1,15 @@
+<h2>Comments</h2>
+
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+{var $comments = $article->related('comment')}
+
+{if $comments->count()}
+	<ul>
+		<li n:foreach="$comments as $comment">
+			{control commentDetail, $comment}
+		</li>
+	</ul>
+{/if}
+
+{control commentForm}

@@ -1,0 +1,10 @@
+{block content}
+	<h1>{$article->title}</h1>
+
+	<small>{$article->date|date:'j. n. Y'}</small>
+	<p>{$article->text}</p>
+
+	<article>
+		{control commentsControl}
+	</article>
+{/block}

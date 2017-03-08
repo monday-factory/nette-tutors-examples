@@ -1,0 +1,10 @@
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+services:
+	router: App\RouterFactory::createRouter
+	- App\Components\CommentsControl\ICommentsControlFactory
+	- App\Components\CommentDetailControl\ICommentDetailControlFactory
